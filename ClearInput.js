@@ -29,7 +29,8 @@
 $(document).ready(function() {
 	$(':input').each(function(index) {
 			console.log($(this).prop('type'));
-			if ($(this).prop('type') == 'text' || $(this).prop('type') == 'search')
+			if (($(this).prop('type') == 'text' || $(this).prop('type') == 'search') &&
+				!$(this).is(":hidden"))
 			{
 				$(this).wrap('<span class="__clear_input_icon"></span>').after($('<span>x</span>').click(function() {
 					$(this).prev('input').val('').trigger('change').focus();
