@@ -28,7 +28,6 @@
  */
 $(document).ready(function() {
 	$(':input').each(function(index) {
-			console.log($(this).prop('type'));
 			if (($(this).prop('type') == 'text' || $(this).prop('type') == 'search') &&
 				!$(this).is(":hidden"))
 			{
