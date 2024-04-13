@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ClearInput",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "Place a clear input box on all input fields",
 
