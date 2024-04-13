@@ -12,7 +12,7 @@
   "content_scripts": [
     {
 	  "matches": [ "*://*/*" ],
-      "js": ["jquery-3.7.1.min.js", "ClearInput.js"],
+      "js": ["jquery-3.2.1.min.js", "ClearInput.js"],
 	  "css" : ["ClearInput.css"]
     }
   ]
