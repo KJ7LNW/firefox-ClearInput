@@ -26,21 +26,33 @@
  * 	https://superuser.com/questions/440589/how-to-add-a-reset-button-to-every-html-input-field-in-firefox
  * 	https://stackoverflow.com/questions/2803532/how-do-i-put-a-clear-button-inside-my-html-text-input-box-like-the-iphone-does
  */
-$(document).ready(function() {
-	$(':input').each(function(index) {
-			if (($(this).prop('type') == 'text' || $(this).prop('type') == 'search') &&
-				!$(this).is(":hidden") &&
-				!$(this).is(":disabled")
-				)
-			{
-				var input_class = $(this).attr("class");
-				$(this).css({ width: '100%', height: '100%' });
-				$(this)
-					.wrap('<span class="__clear_input_icon ' + input_class + '"></span>')
-					.after($('<span>x</span>')
-					.click(function() {
-						$(this).prev('input').val('').trigger('change').focus();
-					}))
-			}
-	})
-});
+
+
+/* For now, exclude startpage.com, as their search widget breaks the plugin.
+ * Help wanted: what is the proper way to fix startpage.com's search widget?
+ * See issue #1: https://github.com/KJ7LNW/firefox-ClearInput/issues/1
+ */
+if (!window.location.href.match(/\/\/[^/]+startpage.com(\/|$)/))
+{
+	$(document).ready(function() {
+		$(':input').each(function(index) {
+				if (($(this).prop('type') == 'text' || $(this).prop('type') == 'search')
+					&& !$(this).is(":hidden")
+					&& !$(this).is(":disabled")
+
+					)
+				{
+					var input_class = $(this).attr("class");
+					if (input_class == "undefined")
+						input_class = "";
+					$(this).css({ width: '100%', height: '100%' });
+					$(this)
+						.wrap('<span class="__clear_input_icon ' + input_class + '"></span>')
+						.after($('<span>x</span>')
+						.click(function() {
+							$(this).prev('input').val('').trigger('change').focus();
+						}))
+				}
+		})
+	});
+}

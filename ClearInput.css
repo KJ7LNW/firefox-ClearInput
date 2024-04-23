@@ -25,6 +25,10 @@ span.__clear_input_icon {
 	position: relative;
 	display: inline-flex;
 	align-items: center;
+	/* Maybe these could be useful? It sort-of helps startpage.com's search box:
+	width: 90%;
+	height: 100%;
+	*/
 }
 span.__clear_input_icon span {
 	position: absolute;
